@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Array Cardio 💪</title>
+  <title>[DONE] Array Cardio 💪</title>
   <link rel="icon" href="https://fav.farm/🔥" />
 </head>
 <body>
@@ -38,12 +38,17 @@
     
     // Array.prototype.filter()
     // 1. Filter the list of inventors for those who were born in the 1500's
+    console.table(inventors.filter(x => x.year >= 1500 && x.year < 1600));
+    
 
     // Array.prototype.map()
     // 2. Give us an array of the inventors first and last names
+    console.table(inventors.map(x => x.first + ' ' + x.last));
+
 
     // Array.prototype.sort()
     // 3. Sort the inventors by birthdate, oldest to youngest
+    console.table(inventors.sort(x => x.year));
 
     // Array.prototype.reduce()
     // 4. How many years did all the inventors live all together?
