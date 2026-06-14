@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Array Cardio 💪💪</title>
+  <title>[DONE] Array Cardio 💪💪</title>
   <link rel="icon" href="https://fav.farm/🔥" />
 </head>
 <body>
@@ -29,13 +29,23 @@
     // Array.prototype.some() // is at least one person 19 or older?
     // Array.prototype.every() // is everyone 19 or older?
 
+    const isSomeAdult = people.some(person => (new Date()).getFullYear() - person.year >= 18);
+    console.log({isSomeAdult});
+
+    const isEveryAdult = people.every(person => (new Date()).getFullYear() - person.year >= 18);
+    console.log({isEveryAdult});
+
     // Array.prototype.find()
     // Find is like filter, but instead returns just the one you are looking for
     // find the comment with the ID of 823423
+    const findComment = comments.find(c => c.id === 823423);
+    console.log(findComment);
 
     // Array.prototype.findIndex()
     // Find the comment with this ID
     // delete the comment with the ID of 823423
+    const indexToDelete = comments.findIndex(c => c.id === 823423);
+    comments.splice(indexToDelete, 1)
 
   </script>
 </body>
