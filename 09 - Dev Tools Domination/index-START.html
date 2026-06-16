@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Console Tricks!</title>
+  <title>[DONE] Console Tricks!</title>
   <link rel="icon" href="https://fav.farm/🔥" />
 </head>
 <body>
@@ -19,28 +19,53 @@
     }
 
     // Regular
+    console.log('hello');
 
     // Interpolated
+    console.log('Hello from %s string', '+pee');
 
     // Styled
+    console.log('%cI am styled string', 'font-style: italic; font-weight: 600; background: gray;');
 
     // warning!
+    console.warn('this is warning');
 
     // Error :|
+    console.error('this is error... fuck');
 
     // Info
+    console.info('this is info');
 
     // Testing
+    console.assert('true' === 1, 'was ist los');
 
     // clearing
 
     // Viewing DOM Elements
+    let p = document.querySelector('p');
+    console.log(p);
+    console.dir(p);
 
     // Grouping together
+    dogs.forEach(x => {
+      console.groupCollapsed(`${x.name}`);
+      console.log(`dog is ${x.name}`);
+      console.log(`dog age is ${x.age}`);
+      console.groupEnd(`${x.name}`);
+    });
+
 
     // counting
 
     // timing
+    console.time('fetching data');
+    fetch('https://api.github.com/users/wesbos')
+      .then(data => data.json())
+      .then(data => {
+        console.timeEnd('fetching data');
+        console.log(data);
+      });
+
 
   </script>
 </body>

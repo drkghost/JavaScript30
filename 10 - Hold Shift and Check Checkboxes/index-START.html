@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Hold Shift to Check Multiple Checkboxes</title>
+  <title>[DONE] Hold Shift to Check Multiple Checkboxes</title>
   <link rel="icon" href="https://fav.farm/🔥" />
 </head>
 <body>
@@ -97,6 +97,30 @@
   </div>
 
 <script>
+  let checkboxes = document.querySelectorAll('.inbox input[type="checkbox"]');
+  // console.log(checkboxes);
+
+  let lastChecked;
+
+  function handleCheck(e) {
+    let inBtw = false;
+    if (e.shiftKey && this.checked) {
+      checkboxes.forEach(c => {
+        if (c === this || c === lastChecked) {
+          inBtw = !inBtw;
+        }
+
+        if (inBtw) {
+          c.checked = true;
+        }
+      });
+    }
+    lastChecked = this;
+    // console.log(e);
+  }
+
+  checkboxes.forEach(x => x.addEventListener('click', handleCheck));
+
 </script>
 </body>
 </html>
