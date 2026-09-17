@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Videos</title>
+  <title>[DONE] Videos</title>
   <link rel="icon" href="https://fav.farm/🔥" />
 </head>
 <body>
@@ -183,6 +183,20 @@
     </li>
   </ul>
 <script>
+  let timeNodes = Array.from(document.querySelectorAll("[data-time]"));
+
+  let seconds = timeNodes
+    .map(n => n.dataset.time)
+    .map(timeCode => {
+      let [min, sec] = timeCode.split(':').map(parseFloat);
+      return min * 60 + sec;
+    })
+    .reduce((total, secs) => total + secs);
+
+  let secondsLeft = seconds % 3600;
+  let hours = Math.floor(seconds / 3600); 
+
+
 </script>
 </body>
 </html>
