@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Follow Along Nav</title>
+  <title>[DONE] Follow Along Nav</title>
   <link rel="icon" href="https://fav.farm/🔥" />
 </head>
 <body>
@@ -145,6 +145,7 @@
 
   .trigger-enter .dropdown {
     display: block;
+    
   }
 
   .trigger-enter-active .dropdown {
@@ -221,6 +222,44 @@
 </style>
 
 <script>
+  let triggers = document.querySelectorAll('.cool > li');
+  let background = document.querySelector('.dropdownBackground');
+  let nav = document.querySelector('.top');
+
+  function handleEnter() {
+    console.log('ENTER!!');
+    this.classList.add('trigger-enter');
+    setTimeout(() => {
+      if (this.classList.contains('trigger-enter')) {
+        this.classList.add('trigger-enter-active')
+      }
+    }, 150);
+    background.classList.add('open');
+
+    let dropdown = this.querySelector('.dropdown');
+    let dropdownCoords = dropdown.getBoundingClientRect();
+    let navCoords = nav.getBoundingClientRect();
+
+    let coords = {
+      height: dropdownCoords.height,
+      width: dropdownCoords.width,
+      top: dropdownCoords.top - navCoords.top,
+      left: dropdownCoords.left - navCoords.left
+    };
+
+    background.style.setProperty('width', `${coords.width}px`);
+    background.style.setProperty('height', `${coords.height}px`);
+    background.style.setProperty('transform', `translate(${coords.left}px, ${coords.top}px)`);
+  }
+
+  function handleLeave() {
+    console.log('LEAVE!!');
+    this.classList.remove('trigger-enter', 'trigger-enter-active');
+    background.classList.remove('open');
+  }
+
+  triggers.forEach(t => t.addEventListener('mouseenter', handleEnter));
+  triggers.forEach(t => t.addEventListener('mouseleave', handleLeave));
 </script>
 
 </body>
